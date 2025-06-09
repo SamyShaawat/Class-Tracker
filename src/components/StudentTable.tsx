@@ -6,11 +6,17 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import type { Student } from "../utils/data.ts";
+import { useEffect } from "react";
 
 interface Props {
   students: Student[];
 }
-export const StudentTable = (props: Props) => {
+export const StudentTable = ({ students }: Props) => {
+  useEffect(() => {
+    if (students.length === 6) {
+      alert("You have reached the maximum number of students (5).");
+    }
+  }, [students]);
   return (
     <TableContainer
       component={Paper}
@@ -37,7 +43,7 @@ export const StudentTable = (props: Props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.students.map((item, index) => {
+          {students.map((item, index) => {
             return (
               <TableRow key={index}>
                 <TableCell

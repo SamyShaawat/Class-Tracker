@@ -1,6 +1,6 @@
 import { Button, Paper, TextField } from "@mui/material";
-import { data, type Student } from "../utils/data.ts";
-import type { Dispatch, SetStateAction } from "react";
+import { type Student } from "../utils/data.ts";
+import { type Dispatch, type SetStateAction } from "react";
 interface Props {
   students: Student[];
 
@@ -11,7 +11,7 @@ export const AddStudent = ({ students, setStudents }: Props) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const newStudent = {
-      id: data.length + 1,
+      id: students.length + 1,
       fullName: formData.get("fullName") as string,
       age: Number(formData.get("age")),
       email: formData.get("email") as string,
