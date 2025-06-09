@@ -1,11 +1,10 @@
-import { Description } from "./components/Description";
-import { Title } from "./components/Title";
+import StudentTable from "./components/StudentTable.tsx";
+
 
 function App() {
   return (
     <>
-      <Title title="Hello Ahmed I love you so much " />
-      <Description />
+      <StudentTable />
     </>
   );
 }
