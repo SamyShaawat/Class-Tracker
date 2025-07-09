@@ -1,38 +1,38 @@
 export interface Student {
-  id: number;
+  studentID: number;
   fullName: string;
   age: number;
   email: string;
-  class: string;
+  className: string;
 }
 
 export const data: Student[] = [
   {
-    id: 1,
+    studentID: 1,
     fullName: "Samy",
     age: 24,
     email: "samy@gmail.com",
-    class: "Master",
+    className: "Master",
   },
   {
-    id: 2,
+    studentID: 2,
     fullName: "Ali",
     age: 25,
     email: "ali@gmail.com",
-    class: "PHD",
+    className: "PHD",
   },
   {
-    id: 3,
+    studentID: 3,
     fullName: "Omar",
     age: 26,
     email: "omar@gmail.com",
-    class: "MBA",
+    className: "MBA",
   },
   {
-    id: 4,
+    studentID: 4,
     fullName: "Khaled",
     age: 27,
     email: "khaled@gmail.com",
-    class: "BSc",
+    className: "BSc",
   },
 ];

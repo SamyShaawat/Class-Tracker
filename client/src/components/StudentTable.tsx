@@ -6,17 +6,17 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import type { Student } from "../utils/data.ts";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 interface Props {
   students: Student[];
 }
 export const StudentTable = ({ students }: Props) => {
-  useEffect(() => {
-    if (students.length === 6) {
-      alert("You have reached the maximum number of students (5).");
-    }
-  }, [students]);
+  // useEffect(() => {
+  //   if (students.length === 6) {
+  //     alert("You have reached the maximum number of students (5).");
+  //   }
+  // }, [students]);
   return (
     <TableContainer
       component={Paper}
@@ -53,7 +53,7 @@ export const StudentTable = ({ students }: Props) => {
                   }}
                   align="center"
                 >
-                  {item.id}
+                  {item.studentID}
                 </TableCell>
                 <TableCell
                   sx={{
@@ -89,7 +89,7 @@ export const StudentTable = ({ students }: Props) => {
                   }}
                   align="center"
                 >
-                  {item.class}
+                  {item.className}
                 </TableCell>
               </TableRow>
             );
