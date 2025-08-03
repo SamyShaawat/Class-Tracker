@@ -1,27 +1,35 @@
 import { Button, Paper, TextField } from "@mui/material";
 import { type Student } from "../utils/data.ts";
 import { type Dispatch, type SetStateAction } from "react";
+import { createStudent } from "../api/students.ts";
 interface Props {
   students: Student[];
 
   setStudents: Dispatch<SetStateAction<Student[]>>;
 }
 export const AddStudent = ({ students, setStudents }: Props) => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const newStudent = {
-      id: students.length + 1,
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const newStudent: Student = {
+      studentID: students.length + 1,
       fullName: formData.get("fullName") as string,
       age: Number(formData.get("age")),
       email: formData.get("email") as string,
-      class: formData.get("className") as string,
+      className: formData.get("className") as string,
     };
-    setStudents([...students, newStudent]);
-    // data.push(newStudent);
-    console.log("New Student Added:", newStudent);
-    event.currentTarget.reset();
+
+    try {
+      const data = await createStudent(newStudent);
+      setStudents((prev) => [...prev, data]);
+      form.reset();
+    } catch (error) {
+      console.error("Failed to add student:", error);
+    }
   };
+
   return (
     <Paper
       sx={{

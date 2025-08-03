@@ -7,12 +7,10 @@ import { fetchStudents } from "./api/students.ts";
 
 function App() {
   const [students, setStudents] = useState<Student[]>([]);
-  const getStudents = async () => {
-    const data = await fetchStudents();
-    setStudents(data);
-  };
   useEffect(() => {
-    getStudents();
+    fetchStudents().then((data) => {
+      setStudents(data);
+    });
   }, []);
   return (
     <>
