@@ -8,9 +8,13 @@ import { fetchStudents } from "./api/students.ts";
 function App() {
   const [students, setStudents] = useState<Student[]>([]);
   useEffect(() => {
-    fetchStudents().then((data) => {
-      setStudents(data);
-    });
+    fetchStudents()
+      .then((data) => {
+        setStudents(data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   }, []);
   return (
     <>

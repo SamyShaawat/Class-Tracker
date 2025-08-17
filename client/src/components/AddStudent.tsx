@@ -26,7 +26,7 @@ export const AddStudent = ({ students, setStudents }: Props) => {
       setStudents((prev) => [...prev, data]);
       form.reset();
     } catch (error) {
-      console.error("Failed to add student:", error);
+      alert((error as Error).message);
     }
   };
 
